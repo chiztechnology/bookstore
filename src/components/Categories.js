@@ -4,6 +4,7 @@ const Categories =()=>{
     return(
         <div>
             welcome in Categories
+            <button>Check Status</button>
         </div>
     )
 }

@@ -6,7 +6,7 @@ const Books = () => {
     const [books, setBooks] = useState([]);
 
     useEffect(() => {
-        setBooks([{ title: 'welcome home', author: 'Wilian einstein' }]);
+        setBooks([{ id:1,title: 'welcome home', author: 'Wilian einstein' },{ id:2,title: 'home is safe', author: 'Elen W.' }]);
         console.log(books);
     }, [])
 
@@ -18,12 +18,8 @@ const Books = () => {
             <div>
                 <h2>Add new book</h2>
                 <form>
-                    <input type='text' placeholder='Book title'/>
-                    <select placeholder='select'>
-                        <option value='action'>Action</option>
-                        <option value='science'>Science Fiction</option>
-                        <option value='economy'>Economy</option>
-                    </select>
+                    <input type='text' placeholder='Book title' name='title'/>
+                    <input type='text' placeholder='Author' name='author'/>
                     <input type='submit' title='Add book'/>
                 </form>
             </div>
