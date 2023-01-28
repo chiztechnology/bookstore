@@ -1,0 +1,6 @@
+.app-body {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(214, 232, 248);
+}

@@ -1,0 +1,63 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true,
+        "jest": true
+    },
+    "parser": "@babel/eslint-parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2018,
+        "sourceType": "module",
+        "requireConfigFile": false
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:import/errors",
+        "plugin:react/recommended",
+        "plugin:jsx-a11y/recommended"
+    ],
+    "plugins": [
+        "react",
+        "import",
+        "jsx-a11y"
+    ],
+    "rules": {
+        "react/react-in-jsx-scope": "off",
+        "import/no-unresolved": "off",
+        "no-shadow": "off",
+        "jsx-quotes": [
+            2,
+            "prefer-single"
+        ],
+        "react/prefer-stateless-function": [
+            2,
+            {
+                "ignorePureComponents": true
+            }
+        ],
+        "react/prop-types": 0,
+        "no-unused-vars": "off",
+        "arrow-body-style": [
+            "error"
+        ],
+        "react/jsx-uses-react": "error",
+        "react/jsx-uses-vars": "error",
+        "import/extensions": [
+            "error",
+            "ignorePackages",
+            {
+                "js": "never",
+                "jsx": "never",
+                "ts": "never",
+                "tsx": "never"
+            }
+        ]
+    },
+    "ignorePatterns": [
+        "dist/",
+        "build/"
+    ]
+}
