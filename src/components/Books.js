@@ -16,7 +16,7 @@ const Books = () => {
                 <BookItem book={element} key={element.id} />
             ))}
             <div>
-                <h2>Add new book</h2>
+                <h2>Add a new book</h2>
                 <form>
                     <input type='text' placeholder='Book title' name='title' />
                     <input type='text' placeholder='Author' name='author' />
