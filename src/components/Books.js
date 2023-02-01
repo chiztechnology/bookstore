@@ -4,12 +4,16 @@ import { useSelector } from 'react-redux';
 
 const Books = () => {
 
-    const [books, setBooks] = useState([]);
+    // const [books, setBooks] = useState([]);
+    const { books } = useSelector((state) => state.books);
 
     useEffect(() => {
         // setBooks([{ id: 1, title: 'welcome home', author: 'Wilian einstein' }, { id: 2, title: 'home is safe', author: 'Elen W.' }]);
-        setBooks(useSelector((state) => state.books));
+        // setBooks(useSelector((state) => state.books));
+        
+        // setBooks(mybooks);
         console.log(books);
+
     }, [])
 
     return (
