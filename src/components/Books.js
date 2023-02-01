@@ -1,13 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import BookItem from './BookItem';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { addBook } from '../redux/books/books';
 
 const Books = () => {
 
-    const [books, setBooks] = useState([]);
+    // const [books, setBooks] = useState([]);
+    const { books } = useSelector((state) => state.books);
+
+    const dispatch = useDispatch();
+    const [book, setBook] = useState({ title: '', author: '' });
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        dispatch(addBook({ id: Date.now(), ...book }));
+
+        // clear input fields after dispatch
+        setBook({ title: '', author: '' });
+    };
 
     useEffect(() => {
-        setBooks([{ id: 1, title: 'welcome home', author: 'Wilian einstein' }, { id: 2, title: 'home is safe', author: 'Elen W.' }]);
+        // setBooks([{ id: 1, title: 'welcome home', author: 'Wilian einstein' }, { id: 2, title: 'home is safe', author: 'Elen W.' }]);
+        // setBooks(useSelector((state) => state.books));
+
+        // setBooks(mybooks);
         console.log(books);
+
     }, [])
 
     return (
@@ -18,9 +37,9 @@ const Books = () => {
             <div>
                 <h2>Add a new book</h2>
                 <form>
-                    <input type='text' placeholder='Book title' name='title' />
-                    <input type='text' placeholder='Author' name='author' />
-                    <input type='submit' title='Add book' />
+                    <input type='text' placeholder='Book title' name='title' onChange={(e) => setBook({ ...book, title: e.target.value })} />
+                    <input type='text' placeholder='Author' name='author' onChange={(e) => setBook({ ...book, author: e.target.value })} />
+                    <input type='submit' title='Add book' onClick={handleSubmit} />
                 </form>
             </div>
         </div>
