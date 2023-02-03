@@ -31,7 +31,7 @@ export const addBook = async ({
     item_id: id,
     title,
     author,
-    category,
+    category: 'action'
   });
 };
 
