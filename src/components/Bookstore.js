@@ -3,7 +3,7 @@ import Navbar from './Navbar';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Books from './Books';
 import Categories from './Categories';
-
+import './Bookstore.css'
 const Bookstore = () => (
     <BrowserRouter>
         <div className='app-body'>

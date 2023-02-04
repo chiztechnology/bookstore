@@ -1,8 +1,12 @@
 import Bookstore from './components/Bookstore';
+import './App.css'
+import { MantineProvider } from '@mantine/core';
 
 function App() {
   return (
-    <Bookstore />
+    <MantineProvider withGlobalStyles withNormalizeCSS>
+      <Bookstore />
+    </MantineProvider>
   );
 }
 
