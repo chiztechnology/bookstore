@@ -6,7 +6,6 @@ import { saveBook, fetchBooks } from '../redux/books/books';
 
 const Books = () => {
     const { books } = useSelector((state) => state.books);
-
     const dispatch = useDispatch();
     const [book, setBook] = useState({ title: '', author: '' });
 
