@@ -18,6 +18,11 @@ const initialStates = {
             title: 'The curse of thhe black pearl',
             author: 'Pirates of the carribean',
         },
+        {
+            id: 4,
+            title: 'Le secret du coffre maudit',
+            author: 'Pirates of the carribean',
+        },
     ],
 };
 

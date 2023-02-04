@@ -5,10 +5,7 @@ import { useDispatch } from 'react-redux';
 import { addBook } from '../redux/books/books';
 
 const Books = () => {
-
-    // const [books, setBooks] = useState([]);
     const { books } = useSelector((state) => state.books);
-
     const dispatch = useDispatch();
     const [book, setBook] = useState({ title: '', author: '' });
 
@@ -19,16 +16,6 @@ const Books = () => {
         // clear input fields after dispatch
         setBook({ title: '', author: '' });
     };
-
-    useEffect(() => {
-        // setBooks([{ id: 1, title: 'welcome home', author: 'Wilian einstein' }, { id: 2, title: 'home is safe', author: 'Elen W.' }]);
-        // setBooks(useSelector((state) => state.books));
-
-        // setBooks(mybooks);
-        console.log(books);
-
-    }, [])
-
     return (
         <div>
             {books.length > 0 && books.map((element) => (
