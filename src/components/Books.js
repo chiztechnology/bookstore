@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import BookItem from './BookItem';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { addBook } from '../redux/books/books';
+import { saveBook, fetchBooks } from '../redux/books/books';
 
 const Books = () => {
     const { books } = useSelector((state) => state.books);
@@ -11,11 +11,17 @@ const Books = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(addBook({ id: Date.now(), ...book }));
+        console.log(book);
+        dispatch(saveBook({ id: Date.now(), ...book }));
 
         // clear input fields after dispatch
         setBook({ title: '', author: '' });
     };
+
+    useEffect(() => {
+        dispatch(fetchBooks());
+    }, [dispatch]);
+
     return (
         <div>
             {books.length > 0 && books.map((element) => (

@@ -1,48 +1,52 @@
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { addBook, getBooks, deleteBook } from '../../helpers';
+
+const FETCH = 'bookstore/books/FETCH';
 const ADD = 'bookstore/books/ADD';
-const REMOVE = 'bookstore/books/REMOVE';
+const DELETE = 'bookstore/books/DELETE';
 
-const initialStates = {
-    books: [
-        {
-            id: 1,
-            title: "They betray peace",
-            author: 'Jean KATALA',
-        },
-        {
-            id: 2,
-            title: "At the world's end",
-            author: 'Johny DEPP',
-        },
-        {
-            id: 3,
-            title: 'The curse of thhe black pearl',
-            author: 'Pirates of the carribean',
-        },
-        {
-            id: 4,
-            title: 'Le secret du coffre maudit',
-            author: 'Pirates of the carribean',
-        },
-    ],
+export const fetchBooks = createAsyncThunk(FETCH, async () => {
+    const books = await getBooks();
+    return books;
+});
+
+
+export const saveBook = createAsyncThunk(ADD, async (book) => {
+    await addBook(book);
+    return book;
+});
+
+export const removeBook = createAsyncThunk(DELETE, async (id) => {
+    await deleteBook(id);
+    return id;
+});
+
+const initialState = {
+    books: [],
 };
 
-const reducer = (state = initialStates, action) => {
-    switch (action.type) {
-        case ADD:
-            return {
-                books: [...state.books, action.payload],
-            };
-        case REMOVE:
-            return {
-                books: state.books.filter((book) => book.id !== action.payload),
-            };
-        default:
-            return state;
-    }
-};
 
-export const addBook = (book) => ({ type: ADD, payload: book });
 
-export const removeBook = (id) => ({ type: REMOVE, payload: id });
+const booksSlice = createSlice({
+    name: 'bookstore/books',
+    initialState,
+    extraReducers: {
+        [fetchBooks.fulfilled]: (state, action) => {
+            const currentState = state;
+            currentState.books = action.payload;
+        },
+        [saveBook.fulfilled]: (state, action) => {
+            const currentState = state;
+            const book = { ...action.payload, category: 'TBD' };
+            currentState.books = [...state.books, book];
+        },
+        [removeBook.fulfilled]: (state, action) => {
+            const currentState = state;
+            currentState.books = state.books.filter(
+                (book) => book.id !== action.payload,
+            );
+        },
+    },
+});
 
-export default reducer;
+export default booksSlice.reducer;
