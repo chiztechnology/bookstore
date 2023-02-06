@@ -1,0 +1,30 @@
+.navbar-container {
+  padding: 0 4%;
+  background-color: #fff;
+  border-bottom: 1px solid #e8e8e8;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-left-align {
+  display: flex;
+}
+
+.navbar-logo-link {
+  text-decoration: none;
+  font-size: 38px;
+  font-weight: bold;
+  color: #0290ff;
+}
+
+.navbar-ul {
+  display: flex;
+  list-style-type: none;
+  align-items: center;
+}
+
+.navbar-li-item {
+  text-decoration: none;
+  color: rgb(13, 13, 13);
+  margin-right: 20px;
+}

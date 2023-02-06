@@ -1,0 +1,25 @@
+.books-container {
+  padding: 20px;
+  background-color: rgb(245, 244, 244);
+}
+
+.myForm {
+  display: flex;
+  width: 80%;
+  margin: 0;
+}
+
+.book-title-field {
+  width: 40%;
+  padding-left: 10px;
+}
+
+.book-author-field {
+  width: 30%;
+  padding-left: 10px;
+}
+
+.submit-field {
+  width: 20%;
+  margin-left: 10px;
+}
